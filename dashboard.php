@@ -29,7 +29,7 @@ header('Location: login.php');
    while($smtnt->fetch()){
       echo "<tr>";
       echo "<td>$fname $lname</td>";
-      echo "</tr>"
+      echo "</tr>";
    }
 
    $stmnt->close();
