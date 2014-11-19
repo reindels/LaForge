@@ -4,12 +4,12 @@ $email =$_POST['email'];
 $password =$_POST['password'];
 
 //??? WHAT IS THE DATABASE CONNECTION ???
-	$dbcnx = mysql_connect("mysql.cs.orst.edu","cs275_tuckerch", "2213"); 
+	$dbcnx = mysql_connect("oniddb.cws.oregonstate.edu","reindels-db", "QVUJJ2JUdAqBApEL"); 
 		if (!$dbcnx){
 			echo 'Connection failure!';
 			exit();
 		}
-	$db = mysql_select_db("cs275_tuckerch", $dbcnx);
+	$db = mysql_select_db("reindels-db", $dbcnx);
 
 		if (!$db) {
 			echo 'Database failure! ';
@@ -19,8 +19,8 @@ $password =$_POST['password'];
 	/*Select user with this username*/
 	$query = 
 		"SELECT *
-		FROM User WHERE 
-		username = '". $username . "'"; 
+		FROM Guardians WHERE 
+		email = '". $email . "'"; 
 		
 	$result = mysql_query($query);
 		if(!$result){
@@ -28,9 +28,11 @@ $password =$_POST['password'];
 		}
 		$row = mysql_fetch_array($result);
 		/*check that username is associated with the password*/
-		if($row["username"] == $username && $row["password"] == $password){
-			$_SESSION['username'] = $username;
-			$_SESSION['user_id'] = $row['user_id'];
+		if($row["email"] == $username && $row["password"] == $password){
+			$_SESSION['fname'] = $fname;
+			$_SESSION['lname'] = $lname;
+			$_SESSION['email'] = $email;
+			$_SESSION['id'] = $row['id'];
 			header('Location: Homepage.php');
 		}
 		else{
