@@ -26,7 +26,7 @@ header('Location: login.php');
 
 
 
-   while($smtnt->fetch()){
+   while($stmnt->fetch()){
       echo "<tr>";
       echo "<td>$fname $lname</td>";
       echo "</tr>";
