@@ -18,7 +18,7 @@ header('Location: login.php');
    if(!$stmnt = $mysqli->prepare($SQLquery))
       {echo "bad things happened";}
 
-   if{!$stmnt->execute())
+   if(!$stmnt->execute())
       {echo "bad things 2";}
 
    if(!$stmnt->bind_result($fname,$lname))
