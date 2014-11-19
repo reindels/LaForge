@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8" /> 
+ 
+ 
+<?php 
+$sitename="Dyslexia Help Center"; 
+$sitedescription="Online Dyslexia Help"; 
+$sitepath="http://people.oregonstate.edu/~hamc/laforge/"; 
+$imgpath=$sitepath."img/";
+?> 
+<title> 
+<?php echo $pagetitle." | ".$sitename." | ".$sitedescription;?> 
+</title> 
+ 
+<link rel="stylesheet" href ="<?php echo $sitepath; ?>screen.css" media="screen" /> 
+<link rel="shortcut icon" href="http://people.oregonstate.edu/~hamc/laforge/img/blue_book.png" type="image/x-icon" />
+</head>
+<body> 
+<header> 
+<h1><a href ="<?php echo $sitepath; ?>" style="color:black;"><?php echo $sitename; ?></a>
+</h1>
+<h3><a href ="<?php echo $sitepath; ?>">Home</a>
+<a href="<?php echo $sitepath; ?>dashboard.php">Dashboard</a>
+<a href="<?php echo $sitepath; ?>updateacc.php">Update Account Info</a>
+<!-- <a href="<?php echo $sitepath; ?>upload/view.php">View Uploads</a>  -->
+</h3> 	
+</header> 
+<section id="content"> 
