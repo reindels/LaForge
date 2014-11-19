@@ -16,7 +16,7 @@ header('Location: login.php');
 <?php 
    $SQLquery = "SELECT fname, lname FROM Dependants";
    if(!$stmnt = $mysqli->prepare($SQLquery))
-      {echo "bad things happened";}
+      {echo "bad things happened $mysqli->connecterrno $mysqli->error";}
 
    if(!$stmnt->execute())
       {echo "bad things 2";}
