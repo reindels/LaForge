@@ -1,30 +1,43 @@
 <!DOCTYPE html> 
 <html lang="en"> 
-<head> 
-<meta charset="utf-8" /> 
+	<head> 
+		<meta charset="utf-8" /> 
  
  
-<?php 
-$sitename="Dyslexia Help Center"; 
-$sitedescription="Online Dyslexia Help"; 
-$sitepath="http://people.oregonstate.edu/~hamc/laforge/"; 
-$imgpath=$sitepath."img/";
-?> 
-<title> 
-<?php echo $pagetitle." | ".$sitename." | ".$sitedescription;?> 
-</title> 
- 
-<link rel="stylesheet" href ="<?php echo $sitepath; ?>screen.css" media="screen" /> 
-<link rel="shortcut icon" href="http://people.oregonstate.edu/~hamc/laforge/img/blue_book.png" type="image/x-icon" />
-</head>
-<body> 
-<header> 
-<h1><a href ="<?php echo $sitepath; ?>" style="color:black;"><?php echo $sitename; ?></a>
-</h1>
-<h3><a href ="<?php echo $sitepath; ?>">Home</a>
-<a href="<?php echo $sitepath; ?>dashboard.php">Dashboard</a>
-<a href="<?php echo $sitepath; ?>updateacc.php">Update Account Info</a>
-<!-- <a href="<?php echo $sitepath; ?>upload/view.php">View Uploads</a>  -->
-</h3> 	
-</header> 
-<section id="content"> 
+		<?php 
+		session_start();
+		session_destroy();
+		$sitename="Dyslexia Help Center"; 
+		$sitedescription="Online Dyslexia Help"; 
+		$sitepath="http://people.oregonstate.edu/~hamc/laforge/"; 
+		$imgpath=$sitepath."img/";
+
+		ini_set('display_errors','On');
+		error_reporting(E_ALL);
+		$SQL_DIRECTORY = "oniddb.cws.oregonstate.edu";
+		$MY_USERNAME = "reindels-db";
+		$MY_PASSWORD = "QVUJJ2JUdAqBApEL";
+		$DATABASE_NAME = "reindels-db";
+		$mysqli = new mysqli($SQL_DIRECTORY,$MY_USERNAME,$MY_PASSWORD,$DATABASE_NAME);
+		if ($mysqli->connect_errno)
+		{echo ("Connection error " . $mysqli->connect_errno . " " . $mysqli->connect_error);}
+		//else{echo "Connected to Server...";}
+		?> 
+		<title> 
+			<?php echo $pagetitle." | ".$sitename." | ".$sitedescription;?> 
+		</title> 
+		 
+		<link rel="stylesheet" href ="<?php echo $sitepath; ?>screen.css" media="screen" /> 
+		<link rel="shortcut icon" href="http://people.oregonstate.edu/~hamc/laforge/img/blue_book.png" type="image/x-icon" />
+	</head>
+	<body> 
+		<header> 
+			<h1><a href ="<?php echo $sitepath; ?>" style="color:black;"><?php echo $sitename; ?></a>
+			</h1>
+			<h3><a href ="<?php echo $sitepath; ?>">Home</a>
+			<a href="<?php echo $sitepath; ?>dashboard.php">Dashboard</a>
+			<a href="<?php echo $sitepath; ?>updateacc.php">Update Account Info</a>
+			<!-- <a href="<?php echo $sitepath; ?>upload/view.php">View Uploads</a>  -->
+			</h3> 	
+		</header> 
+		<section id="content"> 
