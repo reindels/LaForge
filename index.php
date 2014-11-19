@@ -1,6 +1,4 @@
 <?php
-// Inialize session
-session_start();
 // Check, if user is already logged in, then jump to secured page
 if(isset($_SESSION['username'])) {
 header('Location: login.php');
