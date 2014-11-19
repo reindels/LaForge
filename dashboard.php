@@ -19,7 +19,7 @@ header('Location: login.php');
       {echo "bad things happened $mysqli->connecterrno $mysqli->error";}
 
    if(!$stmnt->execute())
-      {echo "bad things 2";}
+      {echo "bad things 2 $mysqli->connecterrno $mysqli->error";}
 
    if(!$stmnt->bind_result($fname,$lname))
       {echo "even more bad things";}
