@@ -11,9 +11,32 @@ header('Location: login.php');
 <?php $icon = "book_green.gif"; ?>
 <?php include $sitename."header.htm"; ?> 
 
-<div style="text-align:center;">
-	<p>Look a dashboard!
-	</p>
-        </p>
-</div>
+<table name = "subjects">
+
+<?php 
+   $SQLquery = "SELECT fname, lname FROM dependants";
+   if(!$stmnt = $mysqli->prepare($SQLquery))
+      {echo "bad things happened";}
+
+   if{!$stmnt->execute())
+      {echo "bad things 2";}
+
+   if(!$stmnt->bind_result($fname,$lname))
+      {echo "even more bad things";}
+
+
+
+   while($smtnt->fetch()){
+      echo "<tr>";
+      echo "<td>$fname $lname</td>";
+      echo "</tr>"
+   }
+
+   $stmnt->close();
+
+?>
+
+</table>
+   
+
  <?php include $sitepath."footer.htm"; ?> 
