@@ -14,7 +14,7 @@ header('Location: login.php');
 <table name = "subjects">
 
 <?php 
-   $SQLquery = "SELECT fname, lname FROM dependants";
+   $SQLquery = "SELECT fname, lname FROM Dependants";
    if(!$stmnt = $mysqli->prepare($SQLquery))
       {echo "bad things happened";}
 
