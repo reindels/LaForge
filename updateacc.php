@@ -6,11 +6,11 @@ if(isset($_SESSION['username'])) {
 header('Location: login.php');
 }
 ?>
-<?php $pagetitle = "Home Page"; ?>
+<?php $pagetitle = "Update Account"; ?>
 <?php $sitepath="http://people.oregonstate.edu/~reindels/LaForge/"; ?>
 <?php $icon = "book_green.gif"; ?>
-<?php include $sitename."header.htm"; ?> 
-
+<?php include "header.htm"; ?> 
+<div style="text-align: center;">
 <h4>Add Child</h4>
 <form action="addchild.php" method="post">
 First Name: <input type="text" name="fname"><br>
@@ -33,5 +33,5 @@ New Password: <input type="text" name="pass1"><br>
 Match New Password: <input type="text" name="pass2"><br>
 <input type="submit">
 </form>
-
-<?php include $sitename."footer.htm"; ?> 
+</div>
+<?php include "footer.htm"; ?> 
