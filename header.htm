@@ -3,7 +3,7 @@
 	<head> 
 		<meta charset="utf-8" /> 
 		<?php 
-			//session_start();
+			session_start();
 			//session_destroy();
 			$sitename="Dyslexia Help Center"; 
 			$sitedescription="Online Dyslexia Help"; 
@@ -34,7 +34,7 @@
 				<a href ="index.php">Home</a>
 				<?php 
 					if (!isset($_SESSION['gid'])){
-						echo"<a href='dashboard.php'>Dashboard</a>";
+						echo"<a href='dashboard.php'>Dashboard</a> ";
 						echo"<a href='updateacc.php'>Update Account Info</a>";
 					}
 				?>
