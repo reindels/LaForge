@@ -22,7 +22,7 @@
 	
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
-$gid = 1;
+$gid = 11;
 
 $query = "DELETE FROM Dependents WHERE fname=$fname AND lname=$lname AND gid =$gid";
 
