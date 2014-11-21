@@ -1,4 +1,4 @@
-<?php $pagetitle = "New Profile"
+<?php $pagetitle = "New Profile";
 include "header.htm"; ?> 
 					
 			
