@@ -1,8 +1,4 @@
-<html>	
-	<title>
-		Create New Profile
-	</title>
-	<body>
+<?php include $sitename."header.htm"; ?> 
 					
 			
 <h2>Create a New Profile:</h2>	
@@ -18,5 +14,4 @@
 		<input type="submit" value="Create Profile" >		
 	</form>
 	
-	</body>	
-</html>
+ <?php include $sitepath."footer.htm"; ?> 
