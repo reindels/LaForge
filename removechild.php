@@ -22,9 +22,9 @@
 	
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
-$gid = 11;
+$gid = 1;
 
-$query = "DELETE FROM Dependents WHERE fname=$fname AND lname=$lname AND gid =$gid";
+$query = "DELETE FROM Dependents WHERE fname='$fname' AND lname='$lname' AND gid ='$gid'";
 
 if ($fname == NULL || $lname == NULL) {
 		header('Location: error.php');
