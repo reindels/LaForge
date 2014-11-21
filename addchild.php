@@ -33,7 +33,7 @@ else {
 	if (!$mysqli->query($query)) {
 			 printf("Error: %s\n", $mysqli->sqlstate);		
 	} else {
-		header('Location: updateacc.php');
+		header('Location: dashboard.php');
 	}
 }
 	
