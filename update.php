@@ -6,12 +6,12 @@
 		exit();
 	}
 
-$fname = mysqli_real_escape_string ($_POST['fname']);
-$lname = mysqli_real_escape_string ($_POST['lname']);
-$email = mysqli_real_escape_string ($_POST['email']);
-$cpass = mysqli_real_escape_string ($_POST['cpass']);
-$pass1 = mysqli_real_escape_string ($_POST['pass1']);
-$pass2 = mysqli_real_escape_string ($_POST['pass2']);
+$fname = mysqli::real_escape_string ($_POST['fname']);
+$lname = mysqli::real_escape_string ($_POST['lname']);
+$email = mysqli::real_escape_string ($_POST['email']);
+$cpass = mysqli::real_escape_string ($_POST['cpass']);
+$pass1 = mysqli::real_escape_string ($_POST['pass1']);
+$pass2 = mysqli::real_escape_string ($_POST['pass2']);
 $gid = 99999999;
 
 	if (isset($_SESSION['gid'])) {
