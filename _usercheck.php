@@ -43,6 +43,6 @@ $password =$_POST['password'];
 		//else
 			//header('Location: index.php')
 			}
-		//header('Location: index.php')
+		header('Location: index.php')
 			
 	?>
