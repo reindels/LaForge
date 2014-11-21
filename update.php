@@ -5,7 +5,10 @@
 		printf("Connection failed: %s\n", $mysqli->connect_error);
 		exit();
 	}
-
+foreach ($_POST as $key => $value) {
+    //do something
+    echo $key . ' has the value of ' . $value;
+}
 $fname = mysqli::real_escape_string ($_POST['fname']);
 $lname = mysqli::real_escape_string ($_POST['lname']);
 $email = mysqli::real_escape_string ($_POST['email']);
