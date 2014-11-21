@@ -21,7 +21,8 @@ $email = $_POST['email'];
 $cpass = $_POST['cpass'];
 $pass1 = $_POST['pass1'];
 $pass2 = $_POST['pass2'];
-$gid = 1;
+$oldpass= "pacifier";
+$gid = 9999;
 
 	if (isset($_SESSION['gid'])) {
 		$gid = $_SESSION['gid'];
