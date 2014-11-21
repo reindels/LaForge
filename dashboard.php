@@ -20,7 +20,7 @@ header('Location: login.php');
 	$SQLquery = "
 	SELECT fname, lname 
 	FROM Dependents 
-	WHERE $_SESSION['gid'] = Dependents.gid;
+	WHERE ".$_SESSION['gid']." = Dependents.gid;
 	";
 	if(!$stmnt = $mysqli->prepare($SQLquery))
 	{echo "bad things happened $mysqli->connecterrno $mysqli->error";}
