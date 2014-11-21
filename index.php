@@ -9,8 +9,12 @@ header('Location: login.php');
 <?php //$sitepath="http://people.oregonstate.edu/~hamc/laforge/"; ?>
 <?php $icon = "book_green.gif"; ?>
 <?php include "header.htm"; ?> 
+<?php 
+error_reporting(E_ERROR | E_PARSE);
+	session_start();
+	?>
 <?php if(!isset($_SESSION['gid'])) { ?>
-		<form method="POST" action="">
+		<form method="POST" action="_usercheck.php">
 			<table>
 				<tr>
 					<td>Email: </td>
@@ -22,9 +26,29 @@ header('Location: login.php');
 				</tr>
 				<input type="hidden" name="login_attempted" value="yes">
 			</table>
+			<input type="submit" name="submit" value="SUBMITssss">
 		</form>
+				
 	<?php }else{ ?>
+		<form method= "POST" action="NewProfile.php">
+		<input type="submit" value="Create a new Profile" >		
+	</form>
+	
+	<form action="_deleteuser.php" method="post">
+		<input type="submit" value="Delete User">
+	</form>
+	
+	<form action="_logout.php" method="post">
+		<input type="submit" value="Logout">
+	</form>
 	<?php } ?>
+	
+	
+	
+	
+	
+	
+	
 <div style="text-align:center;">
 	<p>
 	<img src="<?php echo $imgpath; ?>dsletters.jpg"/>
