@@ -95,7 +95,26 @@
         else
         {echo "<br/>$pass execute REMOVE";}	
 	$stmnt->close();
-	
+// Print Dependentes	
+	$SQLdeps = "SELECT fname, lname FROM Dependents;";
+	if(!$stmnt = $mysqli->prepare($SQLdeps))
+	{echo "$fail $mysqli->connecterrno $mysqli->error";}
+	else
+	{echo "<br/>$pass prepare";} 
+	if(!$stmnt->bind_result($fname,$lname))
+	{echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
+	else
+	{echo "<br/>$pass bind_result";}
+//	
+	echo "<br/>Dependents:<br/>";
+	echo "<table>";
+	while($stmnt->fetch()){
+		echo "<tr>";
+		echo "<td>- $fname $lname</td>";
+		echo "</tr>";
+	}
+	$stmnt->close();
+	echo "</table><br/>";	
 //	Prepare ADD
         if(!$stmnt = $mysqli->prepare($SQLadd))
         {echo "$fail $mysqli->connecterrno $mysqli->error";}
@@ -107,6 +126,26 @@
         else
         {echo "<br/>$pass execute ADD";}
 		$stmnt->close();
+// Print Dependents	
+	$SQLdeps = "SELECT fname, lname, gid FROM Dependents";
+	if(!$stmnt = $mysqli->prepare($SQLdeps))
+	{echo "$fail $mysqli->connecterrno $mysqli->error";}
+	else
+	{echo "<br/>$pass prepare";} 
+	if(!$stmnt->bind_result($fname,$lname,$gid))
+	{echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
+	else
+	{echo "<br/>$pass bind_result";}
+//	
+	echo "<br/>Dependents:<br/>";
+	echo "<table>";
+	while($stmnt->fetch()){
+		echo "<tr>";
+		echo "<td>- $fname $lname $gid</td>";
+		echo "</tr>";
+	}
+	$stmnt->close();
+	echo "</table><br/>";	
 //  Prepare REMOVE
         if(!$stmnt = $mysqli->prepare($SQLrm))
         {echo "$fail $mysqli->connecterrno $mysqli->error";}
