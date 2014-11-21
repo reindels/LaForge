@@ -13,35 +13,6 @@ header('Location: login.php');
 error_reporting(E_ERROR | E_PARSE);
 	session_start();
 	?>
-<?php if(!isset($_SESSION['gid'])) { ?>
-		<form method="POST" action="_usercheck.php">
-			<table>
-				<tr>
-					<td>Email: </td>
-					<td><input type="text" name="email" size="25"></td>
-				</tr>
-				<tr>
-					<td>Password: </td>
-					<td><input type="password" name="password" size="25"></td>
-				</tr>
-				<input type="hidden" name="login_attempted" value="yes">
-			</table>
-			<input type="submit" name="submit" value="SUBMITssss">
-		</form>
-				
-	<?php }else{ ?>
-		<form method= "POST" action="NewProfile.php">
-		<input type="submit" value="Create a new Profile" >		
-	</form>
-	
-	<form action="_deleteuser.php" method="post">
-		<input type="submit" value="Delete User">
-	</form>
-	
-	<form action="_logout.php" method="post">
-		<input type="submit" value="Logout">
-	</form>
-	<?php } ?>
 	
 	
 	
