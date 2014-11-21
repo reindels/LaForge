@@ -33,7 +33,7 @@
 			<h3>
 				<a href ="index.php">Home</a>
 				<?php 
-					if (!isset($_SESSION['gid'])){
+					if (isset($_SESSION['gid'])){
 						echo"<a href='dashboard.php'>Dashboard</a> ";
 						echo"<a href='updateacc.php'>Update Account Info</a>";
 					}
