@@ -15,9 +15,9 @@ header('Location: login.php');
 <table name = "subjects">
 
 <?php 
-	if ( isset($_SESSION['gid']) )
+	if ( isset($_SESSION['gid']) ) 
 	{
-	$SQLquery = "SELECT fname, lname FROM Dependents WHERE $_SESSION['gid'] == Dependents.gid";
+	$SQLquery = "SELECT fname, lname FROM Dependents WHERE $_SESSION['gid'] = Dependents.gid";
 	if(!$stmnt = $mysqli->prepare($SQLquery))
 	{echo "bad things happened $mysqli->connecterrno $mysqli->error";}
 
