@@ -40,7 +40,7 @@ header('Location: login.php');
 <?php $pagetitle = "Home Page"; ?>
 <?php $sitepath="http://people.oregonstate.edu/~hamc/laforge/"; ?>
 <?php $icon = "book_green.gif"; ?>
-<?php include $sitename."header.htm"; ?> 
+<?php include $sitepath."header.htm"; ?> 
 
 <div style="text-align:center;">
 	<p>
