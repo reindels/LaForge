@@ -15,7 +15,7 @@ ini_set('display_errors','On');
 			
 //error_reporting(E_ERROR | E_PARSE);
 session_start(); 
-include "header.htm"; 
+include_once "header.htm"; 
 // Create profile and add to database
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -38,4 +38,4 @@ trim($email); trim($password); trim($fname); trim($lname);
 			'".$password."'	);");
 		header( 'Location: index.php' );
 ?>
- <?php include "footer.htm"; ?> 
+ <?php include_once "footer.htm"; ?> 
