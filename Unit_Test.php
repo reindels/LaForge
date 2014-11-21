@@ -189,4 +189,69 @@
 	}
 	$stmnt->close();
 	echo "</table><br/>";	
+// UPDATE guardian test
+
+// Print Guardians	
+	$SQLgs = "SELECT fname, lname, id FROM Guardians WHERE id=9565611";
+	if(!$stmnt = $mysqli->prepare($SQLgs))
+	{echo "$fail $mysqli->connecterrno $mysqli->error";}
+	else
+	{echo "<br/>$pass prepare";} 
+	if(!$stmnt->execute())
+	{echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
+	else
+	{echo "<br/>$pass execute";}
+	if(!$stmnt->bind_result($fname,$lname,$id))
+	{echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
+	else
+	{echo "<br/>$pass bind_result";}
+//	
+	echo "<br/>Guardians:<br/>";
+	echo "<table>";
+	while($stmnt->fetch()){
+		echo "<tr>";
+		echo "<td>- $fname $lname $id</td>";
+		echo "</tr>";
+	}
+	$stmnt->close();
+	echo "</table><br/>";	
+
+// "Testing mySQL Update statement for Guardians table:
+	echo "Testing mySQL INSERT and DELETE for Dependents table:";
+        $SQLupdate = "UPDATE Guardians SET lname='SUCCESS' WHERE id = 9565611";
+//  Prepare Update
+        if(!$stmnt = $mysqli->prepare($SQLupdate))
+        {echo "$fail $mysqli->connecterrno $mysqli->error";}
+        else
+        {echo "<br/>$pass prepare UPDATE";}
+//	Execute Update
+	if(!$stmnt->execute())
+        {echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
+        else
+        {echo "<br/>$pass execute UPDATE";}	
+	$stmnt->close();
+// Print Guardians	
+	$SQLgs = "SELECT fname, lname, id FROM Guardians WHERE id=9565611";
+	if(!$stmnt = $mysqli->prepare($SQLgs))
+	{echo "$fail $mysqli->connecterrno $mysqli->error";}
+	else
+	{echo "<br/>$pass prepare";} 
+	if(!$stmnt->execute())
+	{echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
+	else
+	{echo "<br/>$pass execute";}
+	if(!$stmnt->bind_result($fname,$lname,$id))
+	{echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
+	else
+	{echo "<br/>$pass bind_result";}
+//	
+	echo "<br/>Guardians:<br/>";
+	echo "<table>";
+	while($stmnt->fetch()){
+		echo "<tr>";
+		echo "<td>- $fname $lname $id</td>";
+		echo "</tr>";
+	}
+	$stmnt->close();
+	echo "</table><br/>";	
 ?>
