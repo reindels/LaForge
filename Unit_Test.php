@@ -81,41 +81,28 @@
 	echo "</table><br/>";
 //
 // "Testing mySQL INSERT and DELETE statement for Dependents table: ";
-        $SQLadd = "INSERT INTO Dependents (fname, lname, gid) VALUES ('unitadd', 'surname', '9001')";
+        $SQLadd = "INSERT INTO Dependents (fname, lname, gid) VALUES ('unitadd', 'surname', 1)";
         $SQLrm = "DELETE FROM Dependents WHERE fname='unitadd' AND lname='surname' AND gid ='9001'";
 //  Prepare REMOVE
         if(!$stmnt = $mysqli->prepare($SQLrm))
         {echo "$fail $mysqli->connecterrno $mysqli->error";}
         else
-        {echo "<br/>$pass prepare";}
+        {echo "<br/>$pass prepare REMOVE";}
 //	Execute REMOVE
 	if(!$stmnt->execute())
         {echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
         else
-        {echo "<br/>$pass execute";}	
+        {echo "<br/>$pass execute REMOVE";}	
 	$stmnt->close();
 	
 //	Prepare ADD
         if(!$stmnt = $mysqli->prepare($SQLadd))
         {echo "$fail $mysqli->connecterrno $mysqli->error";}
         else
-        {echo "<br/>$pass prepare";}
+        {echo "<br/>$pass prepare ADD";}
 //	Execute ADD
         if(!$stmnt->execute())
         {echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
         else
-        {echo "<br/>$pass execute";}
-// Bind Result ADD
-        if(!$stmnt->bind_result($fname,$lname))
-        {echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
-        else
-        {echo "<br/>$pass bind_result";}
-		echo "<br/>TABLE:<br/>";
-	while($stmnt->fetch()){
-		echo "<tr>";
-		echo "<td>- $fname $lname</td>";
-		echo "</tr>";
-	}
-	$stmnt->close();
-	echo "</table><br/>";
+        {echo "<br/>$pass execute ADD";}
 ?>
