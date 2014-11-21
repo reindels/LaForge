@@ -5,8 +5,7 @@
 <?php $pagetitle = "_createprofile"; ?>
 <?php $sitepath="http://people.oregonstate.edu/~hamc/laforge/_createprofile.php"; ?>
 <?php $icon = "book_green.gif"; 
-include $sitename."header.htm";
-/*ini_set('display_errors','On');
+ini_set('display_errors','On');
 			error_reporting(E_ALL);
 			$SQL_DIRECTORY = "oniddb.cws.oregonstate.edu";
 			$MY_USERNAME = "reindels-db";
@@ -16,7 +15,7 @@ include $sitename."header.htm";
 			
 //error_reporting(E_ERROR | E_PARSE);
 session_start(); 
-*/
+
 // Create profile and add to database
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -39,4 +38,3 @@ trim($email); trim($password); trim($fname); trim($lname);
 			'".$password."'	);");
 		header( 'Location: index.php' );
 ?>
- <?php include_once "footer.htm"; ?> 
