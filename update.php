@@ -10,11 +10,13 @@
 		printf("Connection failed: %s\n", $mysqli->connect_error);
 		exit();
 	}
+/*
 foreach ($_POST as $key => $value) {
     //do something
     echo $key . ' has the value of ' . $value;
     echo '<br />';
 }
+ */
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 $email = $_POST['email'];
