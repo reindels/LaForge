@@ -8,13 +8,14 @@
 foreach ($_POST as $key => $value) {
     //do something
     echo $key . ' has the value of ' . $value;
+    echo '<br />';
 }
-$fname = mysqli::real_escape_string ($_POST['fname']);
-$lname = mysqli::real_escape_string ($_POST['lname']);
-$email = mysqli::real_escape_string ($_POST['email']);
-$cpass = mysqli::real_escape_string ($_POST['cpass']);
-$pass1 = mysqli::real_escape_string ($_POST['pass1']);
-$pass2 = mysqli::real_escape_string ($_POST['pass2']);
+$fname = $_POST['fname'];
+$lname = $_POST['lname'];
+$email = $_POST['email'];
+$cpass = $_POST['cpass'];
+$pass1 = $_POST['pass1'];
+$pass2 = $_POST['pass2'];
 $gid = 99999999;
 
 	if (isset($_SESSION['gid'])) {
