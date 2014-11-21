@@ -1,4 +1,3 @@
-
 <?php 
 	$SQL_DIRECTORY = "oniddb.cws.oregonstate.edu";
 	$MY_USERNAME = "reindels-db";
