@@ -1,6 +1,11 @@
+
 <?php
-	session_start(); 
-	
+	//session_start(); 
+	$SQL_DIRECTORY = "oniddb.cws.oregonstate.edu";
+	$MY_USERNAME = "reindels-db";
+	$MY_PASSWORD = "QVUJJ2JUdAqBApEL";
+	$DATABASE_NAME = "reindels-db";
+	$mysqli = new mysqli($SQL_DIRECTORY,$MY_USERNAME,$MY_PASSWORD,$DATABASE_NAME);
 	if ($mysqli->connect_errno) {
 		printf("Connection failed: %s\n", $mysqli->connect_error);
 		exit();
@@ -16,7 +21,7 @@ $email = $_POST['email'];
 $cpass = $_POST['cpass'];
 $pass1 = $_POST['pass1'];
 $pass2 = $_POST['pass2'];
-$gid = 99999999;
+$gid = 1;
 
 	if (isset($_SESSION['gid'])) {
 		$gid = $_SESSION['gid'];
@@ -31,8 +36,8 @@ $q2 = "UPDATE Guardians SET fname='".$fname."', lname='".$lname."', email='".$em
 	}
 	elseif (($pass1 != NULL || $pass2 != NULL) && ($pass1 === $pass2)) {
 		//set new paass and update information
-		if (!$result = $mysqli->query($q1)) {
-			die('There was an error['.$mysqli->error.']');
+		if (!$mysqli->query($q1)) {
+			 printf("Error: %s\n", $mysqli->sqlstate);
 		}
 		else {
 			header('Location: updateacc.php');
@@ -41,8 +46,8 @@ $q2 = "UPDATE Guardians SET fname='".$fname."', lname='".$lname."', email='".$em
 	}
 	else {
 		//update information
-		if (!$result = $mysqli->query($q2)) {
-			die('There was an error['.$mysqli->error.']');
+		if (!$mysqli->query($q2)) {
+			 printf("Error: %s\n", $mysqli->sqlstate);
 		}
 		else {
 			header('Location: updateacc.php');
