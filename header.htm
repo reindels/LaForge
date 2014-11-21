@@ -3,7 +3,8 @@
 	<head> 
 		<meta charset="utf-8" /> 
 		<?php 
-			//session_start();
+			error_reporting(E_ERROR | E_PARSE);
+			session_start();
 			//session_destroy();
 			$sitename="Dyslexia Help Center"; 
 			$sitedescription="Online Dyslexia Help"; 
@@ -24,7 +25,7 @@
 		 
 		<!-- <link rel="stylesheet" href ="<?php echo $sitepath; ?>screen.css" media="screen" /> -->
 		<link rel="stylesheet" href ="dyslexia.css" media="screen" /> 
-		<link rel="shortcut icon" href="img/blue_book.png" type="image/x-icon" />
+		<link rel="shortcut icon" href="http://people.oregonstate.edu/~hamc/laforge/img/blue_book.png" type="image/x-icon" />
 	</head>
 	<body> 
 		<header> 
@@ -32,12 +33,44 @@
 			</h1>
 			<h3>
 				<a href ="index.php">Home</a>
-				<a href="dashboard.php">Dashboard</a>
-				<a href="updateacc.php">Update Account Info</a>
-				
+				<?php 
+					if (isset($_SESSION['gid'])){
+						echo"<a href='dashboard.php'>Dashboard</a> ";
+						echo"<a href='updateacc.php'>Update Account Info</a>";
+					}
+				?>
 				<a href="aboutus.php">About Us</a>
 				<a href="contact.php">Contact Us</a>
 			
 			</h3> 	
+			<?php if(!isset($_SESSION['gid'])) { ?>
+				<form method="POST" action="_usercheck.php">
+				<table>
+				<tr>
+				<td>Email: </td>
+				<td><input type="text" name="email" size="25"></td>
+				<td>Password: </td>
+				<td><input type="password" name="password" size="25"></td>
+				<td><input type="submit" name="submit" value="SUBMITssss"></td>
+				</tr>
+				<input type="hidden" name="login_attempted" value="yes">
+				</table>
+				
+				</form>
+
+			<?php }else{ ?>
+				<form method= "POST" action="NewProfile.php">
+				<input type="submit" value="Create a new Profile" >		
+				</form>
+
+				<form action="_deleteuser.php" method="post">
+				<input type="submit" value="Delete User">
+				</form>
+
+				<form action="_logout.php" method="post">
+				<input type="submit" value="Logout">
+				</form>
+			<?php } ?>
+
 		</header> 
 		<section id="content"> 

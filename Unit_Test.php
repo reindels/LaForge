@@ -24,7 +24,6 @@
 	//			
 	echo"<br/><br/>";
 	echo "Testing mySQL SELECT statement for Guardians table: ";
-	echo "<table>";
 //
 //
 	$SQLquery = "SELECT fname, lname FROM Guardians";
@@ -44,6 +43,7 @@
 	{echo "<br/>$pass bind_result";}
 //
 	echo "<br/>TABLE:<br/>";
+	echo "<table>";
 	while($stmnt->fetch()){
 		echo "<tr>";
 		echo "<td>- $fname $lname</td>";
@@ -71,6 +71,7 @@
 	{echo "<br/>$pass bind_result";}
 //
 	echo "<br/>TABLE:<br/>";
+	echo "<table>";
 	while($stmnt->fetch()){
 		echo "<tr>";
 		echo "<td>- $fname $lname</td>";

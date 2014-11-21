@@ -9,22 +9,17 @@ header('Location: login.php');
 <?php //$sitepath="http://people.oregonstate.edu/~hamc/laforge/"; ?>
 <?php $icon = "book_green.gif"; ?>
 <?php include "header.htm"; ?> 
-<?php if(!isset($_SESSION['gid'])) { ?>
-		<form method="POST" action="">
-			<table>
-				<tr>
-					<td>Email: </td>
-					<td><input type="text" name="email" size="25"></td>
-				</tr>
-				<tr>
-					<td>Password: </td>
-					<td><input type="password" name="password" size="25"></td>
-				</tr>
-				<input type="hidden" name="login_attempted" value="yes">
-			</table>
-		</form>
-	<?php }else{ ?>
-	<?php } ?>
+<?php 
+error_reporting(E_ERROR | E_PARSE);
+	session_start();
+	?>
+	
+	
+	
+	
+	
+	
+	
 <div style="text-align:center;">
 	<p>
 	<img src="<?php echo $imgpath; ?>dsletters.jpg"/>
