@@ -28,8 +28,8 @@ $gid = 9999;
 		$gid = $_SESSION['gid'];
 	}
 	
-$q1 = "UPDATE Guardians SET fname='".$fname."', lname='".$lname."', email='".$email."', pass1='".$pass1."' WHERE gid = '".$gid."'";
-$q2 = "UPDATE Guardians SET fname='".$fname."', lname='".$lname."', email='".$email."' WHERE gid = '".$gid."'";
+$q1 = "UPDATE Guardians SET fname='$fname', lname='$lname', email='$email', pass1='$pass1' WHERE gid = '$gid'";
+$q2 = "UPDATE Guardians SET fname='$fname', lname='$lname', email='$email' WHERE gid = '$gid'";
 
 
 	if ($fname == NULL || $lname == NULL || $cpass == NULL || $email == NULL) {
