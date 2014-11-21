@@ -39,12 +39,18 @@
 						echo"<a href='updateacc.php'>Update Account Info</a>";
 					}
 				?>
+										
 				<a href="aboutus.php">About Us</a>
 				<a href="contact.php">Contact Us</a>
 			
+			<?php
+					if (!isset($_SESSION['gid'])){
+						echo"<a href='NewProfile.php'>New User</a>";
+					}
+				?>
 			</h3> 	
 			<?php if(!isset($_SESSION['gid'])) { ?>
-				<form method="POST" action="_usercheck.php">
+				<form method="post" action="_usercheck.php">
 				<table>
 				<tr>
 				<td>Email: </td>
@@ -59,9 +65,6 @@
 				</form>
 
 			<?php }else{ ?>
-				<form method= "POST" action="NewProfile.php">
-				<input type="submit" value="Create a new Profile" >		
-				</form>
 
 				<form action="_deleteuser.php" method="post">
 				<input type="submit" value="Delete User">
