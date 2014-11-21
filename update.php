@@ -1,6 +1,5 @@
 
-<?php
-	//session_start(); 
+<?php 
 	$SQL_DIRECTORY = "oniddb.cws.oregonstate.edu";
 	$MY_USERNAME = "reindels-db";
 	$MY_PASSWORD = "QVUJJ2JUdAqBApEL";
@@ -30,8 +29,8 @@ $gid = 9999;
 		$gid = $_SESSION['gid'];
 	}
 	
-$q1 = "UPDATE Guardians SET fname='$fname', lname='$lname', email='$email', pass1='$pass1' WHERE gid = '$gid'";
-$q2 = "UPDATE Guardians SET fname='$fname', lname='$lname', email='$email' WHERE gid = '$gid'";
+$q1 = "UPDATE Guardians SET fname='$fname', lname='$lname', email='$email', pass1='$pass1' WHERE id = '$gid'";
+$q2 = "UPDATE Guardians SET fname='$fname', lname='$lname', email='$email' WHERE id = '$gid'";
 
 
 	if ($fname == NULL || $lname == NULL || $cpass == NULL || $email == NULL) {
