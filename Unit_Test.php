@@ -83,7 +83,7 @@
 // "Testing mySQL INSERT and DELETE statement for Dependents table:
 	echo "Testing mySQL INSERT and DELETE for Dependents table:";
         $SQLadd = "INSERT INTO Dependents (fname, lname, gid) VALUES ('unitadd', 'surname', 1)";
-        $SQLrm = "DELETE FROM Dependents WHERE fname='unitadd' AND lname='surname' AND gid ='9001'";
+        $SQLrm = "DELETE FROM Dependents WHERE fname='unitadd' AND lname='surname' AND gid ='1'";
 //  Prepare REMOVE
         if(!$stmnt = $mysqli->prepare($SQLrm))
         {echo "$fail $mysqli->connecterrno $mysqli->error";}
