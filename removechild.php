@@ -24,6 +24,11 @@ $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 $gid = 1;
 
+if (isset($_SESSION['gid'])) {
+    $gid = $_SESSION['gid'];
+}
+
+
 $query = "DELETE FROM Dependents WHERE fname='$fname' AND lname='$lname' AND gid ='$gid'";
 
 if ($fname == NULL || $lname == NULL) {

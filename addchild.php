@@ -24,6 +24,11 @@ $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 $gid = 1;
 
+if (isset($_SESSION['gid'])) {
+    $gid = $_SESSION['gid'];
+}
+
+
 $query = "INSERT INTO Dependents (fname, lname, gid) VALUES ('$fname', '$lname', '$gid')";
 
 if ($fname == NULL || $lname == NULL) {
