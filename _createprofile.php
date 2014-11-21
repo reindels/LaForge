@@ -36,5 +36,27 @@ trim($email); trim($password); trim($fname); trim($lname);
 			'".$lname."', 
 			'".$email."', 
 			'".$password."'	);");
+		$result = $mysqli->query(
+	    "SELECT *
+		FROM Guardians WHERE 
+		email = '". $email . "'" );
+				
+		$num_results = mysqli_num_rows($result);
+		$row = mysqli_fetch_assoc($result);
+		 //*check that username is associated with the password*/
+		for($i=0; $i<$num_results; $i++){
+			if($row["email"] == $email && $row["password"] == $password){
+				//$_SESSION['fname'] = $fname;
+				//$_SESSION['lname'] = $lname;
+				$_SESSION['email'] = $email;
+				$_SESSION['gid'] = $row['id'];
+				$gid = $row['id'];
+				//echo $_SESSION['gid'];
+				header('Location: index.php');
+			}
+		//else
+			//header('Location: index.php')
+		}
+		header('Location: index.php');
 		header( 'Location: index.php' );
 ?>
