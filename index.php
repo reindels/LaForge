@@ -4,7 +4,12 @@ if(isset($_SESSION['username'])) {
 header('Location: login.php');
 }
 ?>
-	<?php if(!isset($_SESSION['gid'])) { ?>
+	
+<?php $pagetitle = "Home Page"; ?>
+<?php //$sitepath="http://people.oregonstate.edu/~hamc/laforge/"; ?>
+<?php $icon = "book_green.gif"; ?>
+<?php include "header.htm"; ?> 
+<?php if(!isset($_SESSION['gid'])) { ?>
 		<form method="POST" action="">
 			<table>
 				<tr>
@@ -20,15 +25,11 @@ header('Location: login.php');
 		</form>
 	<?php }else{ ?>
 	<?php } ?>
-<?php $pagetitle = "Home Page"; ?>
-<?php //$sitepath="http://people.oregonstate.edu/~hamc/laforge/"; ?>
-<?php $icon = "book_green.gif"; ?>
-<?php include "header.htm"; ?> 
-
 <div style="text-align:center;">
 	<p>
 	<img src="<?php echo $imgpath; ?>dsletters.jpg"/>
 	</p>
+
 </div>
 	<h1>Lorem ipsum</h1>
 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
