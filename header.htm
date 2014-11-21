@@ -49,7 +49,7 @@
 					}
 				?>
 			</h3> 	
-			<?php if(!isset($_SESSION['gid'])) { ?>
+			<?php if(!isset($_SESSION['gid']) || $pagetitle == "New Profile") { ?>
 				<form method="post" action="_usercheck.php">
 				<table>
 				<tr>
