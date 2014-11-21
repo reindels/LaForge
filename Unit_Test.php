@@ -96,12 +96,16 @@
         {echo "<br/>$pass execute REMOVE";}	
 	$stmnt->close();
 // Print Dependentes	
-	$SQLdeps = "SELECT fname, lname FROM Dependents;";
+	$SQLdeps = "SELECT fname, lname, gid FROM Dependents WHERE gid=1";
 	if(!$stmnt = $mysqli->prepare($SQLdeps))
 	{echo "$fail $mysqli->connecterrno $mysqli->error";}
 	else
 	{echo "<br/>$pass prepare";} 
-	if(!$stmnt->bind_result($fname,$lname))
+	if(!$stmnt->execute())
+	{echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
+	else
+	{echo "<br/>$pass execute";}
+	if(!$stmnt->bind_result($fname,$lname,$gid))
 	{echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
 	else
 	{echo "<br/>$pass bind_result";}
@@ -110,7 +114,7 @@
 	echo "<table>";
 	while($stmnt->fetch()){
 		echo "<tr>";
-		echo "<td>- $fname $lname</td>";
+		echo "<td>- $fname $lname $gid</td>";
 		echo "</tr>";
 	}
 	$stmnt->close();
@@ -127,11 +131,15 @@
         {echo "<br/>$pass execute ADD";}
 		$stmnt->close();
 // Print Dependents	
-	$SQLdeps = "SELECT fname, lname, gid FROM Dependents";
+	$SQLdeps = "SELECT fname, lname, gid FROM Dependents WHERE gid=1";
 	if(!$stmnt = $mysqli->prepare($SQLdeps))
 	{echo "$fail $mysqli->connecterrno $mysqli->error";}
 	else
-	{echo "<br/>$pass prepare";} 
+	{echo "<br/>$pass prepare";}
+	if(!$stmnt->execute())
+	{echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
+	else
+	{echo "<br/>$pass execute";}
 	if(!$stmnt->bind_result($fname,$lname,$gid))
 	{echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
 	else
@@ -157,5 +165,28 @@
         else
         {echo "<br/>$pass execute REMOVE";}	
 	$stmnt->close();
-	
+// Print Dependents	
+	$SQLdeps = "SELECT fname, lname, gid FROM Dependents WHERE gid=1";
+	if(!$stmnt = $mysqli->prepare($SQLdeps))
+	{echo "$fail $mysqli->connecterrno $mysqli->error";}
+	else
+	{echo "<br/>$pass prepare";}
+	if(!$stmnt->execute())
+	{echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
+	else
+	{echo "<br/>$pass execute";}
+	if(!$stmnt->bind_result($fname,$lname,$gid))
+	{echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
+	else
+	{echo "<br/>$pass bind_result";}
+//	
+	echo "<br/>Dependents:<br/>";
+	echo "<table>";
+	while($stmnt->fetch()){
+		echo "<tr>";
+		echo "<td>- $fname $lname $gid</td>";
+		echo "</tr>";
+	}
+	$stmnt->close();
+	echo "</table><br/>";	
 ?>
