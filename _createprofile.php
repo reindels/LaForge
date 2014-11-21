@@ -15,39 +15,27 @@ ini_set('display_errors','On');
 			
 //error_reporting(E_ERROR | E_PARSE);
 session_start(); 
-?>
-
-<?php // Create profile and add to database
-$email =$_POST['email'];
-$password =$_POST['password'];
-$fname =$_POST['fname'];
-$lname =$_POST['lname'];  
-trim($username); trim($password); trim($fname); trim($lname);
+include $sitename."header.htm"; 
+// Create profile and add to database
+$email = $_POST['email'];
+$password = $_POST['password'];
+$fname = $_POST['fname'];
+$lname = $_POST['lname'];  
+trim($email); trim($password); trim($fname); trim($lname);
 
 	/*Give username a unique user_id*/
-	$gid = rand(1000000,9999999);
+	//$gid = rand(1000000,9999999);
 	//$query = "SELECT * FROM User";
 	$result = $mysqli->query(	"SELECT * 
 								FROM Guardians");
 	/*Create new user in database*/		
 	$result = $mysqli->query( 
-		"INSERT 
-		INTO Guardians(id, fname, lname, email, password)
+		"INSERT INTO Guardians(fname, lname, email, password)
 		VALUES (
-			'".$gid."', 
 			'".$fname."', 
 			'".$lname."', 
 			'".$email."', 
-			'".$password."'	)");
-			
-		header('Location: index.php');
-				
-		//if(!$result){
-		//	die('Fatal error(s): ' . mysql_error());
-		//}
-		//else{
-				
-			//header('Location: index.php');
-		//}
-
+			'".$password."'	);");
+		header( 'Location: index.php' );
 ?>
+ <?php include $sitepath."footer.htm"; ?> 
