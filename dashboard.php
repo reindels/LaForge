@@ -5,8 +5,9 @@ session_start();
 if(isset($_SESSION['username'])) {
 header('Location: login.php');
 }
+
 ?>
-<?php $pagetitle = "Home Page"; ?>
+<?php $pagetitle = "Dashboard"; ?>
 <?php $sitepath="http://people.oregonstate.edu/~hamc/laforge/"; ?>
 <?php $icon = "book_green.gif"; ?>
 <?php include $sitename."header.htm"; ?> 
@@ -23,19 +24,13 @@ header('Location: login.php');
 
    if(!$stmnt->bind_result($fname,$lname))
       {echo "even more bad things";}
-
-
-
    while($stmnt->fetch()){
       echo "<tr>";
       echo "<td>$fname $lname</td>";
       echo "</tr>";
    }
-
    $stmnt->close();
-
 ?>
-
 </table>
    
 
