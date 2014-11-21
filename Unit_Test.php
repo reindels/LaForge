@@ -80,7 +80,8 @@
 	$stmnt->close();
 	echo "</table><br/>";
 //
-// "Testing mySQL INSERT and DELETE statement for Dependents table: ";
+// "Testing mySQL INSERT and DELETE statement for Dependents table:
+	echo "Testing mySQL INSERT and DELETE for Dependents table:";
         $SQLadd = "INSERT INTO Dependents (fname, lname, gid) VALUES ('unitadd', 'surname', 1)";
         $SQLrm = "DELETE FROM Dependents WHERE fname='unitadd' AND lname='surname' AND gid ='9001'";
 //  Prepare REMOVE
@@ -105,4 +106,17 @@
         {echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
         else
         {echo "<br/>$pass execute ADD";}
+		$stmnt->close();
+//  Prepare REMOVE
+        if(!$stmnt = $mysqli->prepare($SQLrm))
+        {echo "$fail $mysqli->connecterrno $mysqli->error";}
+        else
+        {echo "<br/>$pass prepare REMOVE";}
+//	Execute REMOVE
+	if(!$stmnt->execute())
+        {echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
+        else
+        {echo "<br/>$pass execute REMOVE";}	
+	$stmnt->close();
+	
 ?>
