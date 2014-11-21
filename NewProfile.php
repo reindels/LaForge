@@ -1,4 +1,5 @@
-<?php include "header.htm"; ?> 
+<?php $pagetitle = "New Profile"
+include "header.htm"; ?> 
 					
 			
 <h2>Create a New Profile:</h2>	
