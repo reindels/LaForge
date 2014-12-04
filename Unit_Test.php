@@ -190,9 +190,25 @@
 	$stmnt->close();
 	echo "</table><br/>";	
 // UPDATE guardian test
+	echo "Testing mySQL UPDATE for Guardians table:";
+
+
+// "Testing mySQL Update statement for Guardians table:
+$SQLupdateadd = "INSERT INTO Guardians(fname, lname, email, password) VALUES ('UPDATE TEST', 'fail', 'update@email.com', 'nopass')";
+//	Prepare ADD
+        if(!$stmnt = $mysqli->prepare($SQLupdateadd))
+        {echo "$fail $mysqli->connecterrno $mysqli->error";}
+        else
+        {echo "<br/>$pass prepare INSERT Guardian";}
+//	Execute ADD
+        if(!$stmnt->execute())
+        {echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
+        else
+        {echo "<br/>$pass execute INSERT Guardian";}
+		$stmnt->close();
 
 // Print Guardians	
-	$SQLgs = "SELECT fname, lname, id FROM Guardians WHERE id=9565611";
+	$SQLgs = "SELECT fname, lname, id FROM Guardians WHERE fname='UPDATE TEST'";
 	if(!$stmnt = $mysqli->prepare($SQLgs))
 	{echo "$fail $mysqli->connecterrno $mysqli->error";}
 	else
@@ -216,9 +232,9 @@
 	$stmnt->close();
 	echo "</table><br/>";	
 
-// "Testing mySQL Update statement for Guardians table:
-	echo "Testing mySQL INSERT and DELETE for Dependents table:";
-        $SQLupdate = "UPDATE Guardians SET lname='SUCCESS' WHERE id = 9565611";
+
+
+        $SQLupdate = "UPDATE Guardians SET lname='SUCCESS' WHERE fname = 'UPDATE TEST'";
 //  Prepare Update
         if(!$stmnt = $mysqli->prepare($SQLupdate))
         {echo "$fail $mysqli->connecterrno $mysqli->error";}
@@ -231,7 +247,7 @@
         {echo "<br/>$pass execute UPDATE";}	
 	$stmnt->close();
 // Print Guardians	
-	$SQLgs = "SELECT fname, lname, id FROM Guardians WHERE id=9565611";
+	$SQLgs = "SELECT fname, lname, id FROM Guardians WHERE fname='UPDATE TEST'";
 	if(!$stmnt = $mysqli->prepare($SQLgs))
 	{echo "$fail $mysqli->connecterrno $mysqli->error";}
 	else
@@ -254,4 +270,16 @@
 	}
 	$stmnt->close();
 	echo "</table><br/>";	
+	$SQLrmg = "DELETE FROM Guardians WHERE fname='UPDATE TEST'";
+	//  Prepare REMOVE
+        if(!$stmnt = $mysqli->prepare($SQLrmg))
+        {echo "$fail $mysqli->connecterrno $mysqli->error";}
+        else
+        {echo "<br/>$pass prepare REMOVE upd";}
+//	Execute REMOVE
+	if(!$stmnt->execute())
+        {echo "<br/>$fail $mysqli->connecterrno $mysqli->error";}
+        else
+        {echo "<br/>$pass execute REMOVE upd";}	
+	$stmnt->close();
 ?>
