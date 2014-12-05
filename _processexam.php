@@ -31,6 +31,7 @@ if ($q3 == "1"){
 
 $id = rand(1000000,9999999);
 $did = $_SESSION['id'];
+$tid = 1;
 
 $result = $mysqli->query( 
 		"INSERT INTO Scores(id, did, tid, score)
