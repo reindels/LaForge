@@ -30,6 +30,4 @@ header('Location: login.php');
 	<input type="submit" value="Submit">
 </form>
 
- <?php include $sitepath."footer.htm"; ?> 
-
 
